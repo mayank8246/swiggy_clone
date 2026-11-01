@@ -1,0 +1,573 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swiggy - Food & Grocery</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.hero {
+    min-height: 860px;
+    height: 100vh;
+    background: #ff4b0b;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* NAVBAR */
+
+.nav {
+    height: 140px;
+    max-width: 1490px;
+    margin: auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 4;
+}
+
+.logo img {
+    width: 190px;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.app {
+    border: 1.5px solid white;
+    border-radius: 15px;
+    padding: 18px 22px;
+}
+
+.signin {
+    background: black;
+    border-radius: 17px;
+    padding: 19px 48px;
+}
+
+/* HERO */
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 68px 20px 0;
+}
+
+h1 {
+    font-size: 56px;
+    line-height: 1.18;
+    font-weight: 900;
+    letter-spacing: -1.8px;
+    max-width: 920px;
+    margin: auto auto 31px;
+}
+
+/* SEARCH */
+
+.search-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    max-width: 955px;
+    margin: auto;
+}
+
+.search-field {
+    height: 72px;
+    background: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    color: #777;
+}
+
+.location-wrap {
+    width: 362px;
+}
+
+.location-field {
+    width: 100%;
+    padding: 0 20px;
+    gap: 14px;
+}
+
+.search-input {
+    width: 572px;
+    padding: 0 20px;
+}
+
+.search-field input {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-family: inherit;
+    width: 100%;
+    min-width: 0;
+}
+
+.search-field input::placeholder {
+    color: #85858b;
+}
+
+.pin {
+    font-size: 27px;
+}
+
+.chevron {
+    font-size: 25px;
+    color: #30343b;
+    margin-left: auto;
+}
+
+.magnify {
+    font-size: 27px;
+}
+
+/* SIDE IMAGES */
+
+.side-art {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    width: 315px;
+    height: auto;
+}
+
+.side-left {
+    left: -25px;
+    top: 135px;
+}
+
+.side-right {
+    right: -25px;
+    top: 135px;
+}
+
+/* SERVICE CARDS */
+
+.cards {
+    max-width: 1400px;
+    margin: 68px auto 0;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+
+.service-card {
+    height: 360px;
+    background: white;
+    color: #414347;
+    border-radius: 46px 46px 0 0;
+    position: relative;
+    overflow: hidden;
+    padding: 34px 30px;
+    box-shadow: 0 12px 30px #a92e001c;
+}
+
+.service-card h2 {
+    font-size: 39px;
+    line-height: 1.1;
+    font-weight: 1000;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.subtitle {
+    font-size: 24px;
+    color: #929292;
+    font-weight: 700;
+    margin-top: 5px;
+    white-space: nowrap;
+}
+
+.discount {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 13px;
+    border-radius: 30px;
+    background: #fff0e8;
+    color: #ff4b0b;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.arrow {
+    position: absolute;
+    bottom: 24px;
+    left: 33px;
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    background: #ff4b0b;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 38px;
+    z-index: 2;
+}
+
+.card-image {
+    position: absolute;
+    right: -5px;
+    bottom: -4px;
+    width: 205px;
+    height: 190px;
+    object-fit: contain;
+    object-position: right bottom;
+}
+
+.grocery {
+    width: 220px;
+    height: 205px;
+}
+
+.dine {
+    width: 205px;
+    height: 190px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px) {
+    .nav {
+        height: 110px;
+    }
+
+    .logo img {
+        width: 155px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 46px;
+    }
+
+    .cards {
+        gap: 22px;
+    }
+
+    .service-card {
+        padding: 28px 22px;
+    }
+
+    .service-card h2 {
+        font-size: 29px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .side-art {
+        width: 220px;
+    }
+}
+
+@media(max-width:760px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 35px;
+    }
+
+    .nav {
+        height: auto;
+        padding: 22px;
+    }
+
+    .logo img {
+        width: 135px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .nav-links a:nth-child(1),
+    .nav-links a:nth-child(2) {
+        display: none;
+    }
+
+    .app {
+        padding: 11px;
+    }
+
+    .signin {
+        padding: 12px 18px;
+    }
+
+    .hero-content {
+        padding-top: 55px;
+    }
+
+    h1 {
+        font-size: 34px;
+        margin-bottom: 25px;
+    }
+
+    .search-row {
+        flex-direction: column;
+        gap: 12px;
+        max-width: 480px;
+    }
+
+    .location-wrap,
+    .search-input {
+        width: 100%;
+        height: 62px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 42px;
+        max-width: 480px;
+    }
+
+    .service-card {
+        height: 260px;
+        border-radius: 28px;
+        padding: 25px;
+    }
+
+    .service-card h2 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .discount {
+        font-size: 15px;
+    }
+
+    .arrow {
+        width: 43px;
+        height: 43px;
+        font-size: 30px;
+        left: 23px;
+        bottom: 18px;
+    }
+
+    .card-image {
+        width: 160px;
+        height: 150px;
+    }
+
+    .side-art {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <!-- SIDE IMAGES -->
+    <img class="side-art side-left"
+         src="Veggies_new (1).png" alt="Vegetables">
+
+    <img class="side-art side-right"
+         src="Sushi_replace.png" alt="Sushi">
+
+    <!-- NAVBAR -->
+    <nav class="nav">
+
+        <a href="#" class="logo">
+            <img src="Swiggy_OG.jpg" alt="Swiggy">
+        </a>
+
+        <div class="nav-links">
+            <a href="#">Swiggy Corporate</a>
+            <a href="#">Partner with us</a>
+            <a href="#" class="app">Get the App ↗</a>
+            <a href="#" class="signin">Sign in</a>
+        </div>
+
+    </nav>
+
+    <!-- MAIN HEADING -->
+    <div class="hero-content">
+
+        <h1>
+            Order food &amp; groceries. Discover
+            <br>
+            best restaurants. Swiggy it!
+        </h1>
+
+        <!-- SEARCH -->
+        <div class="search-row">
+
+            <div class="location-wrap">
+
+                <label class="search-field location-field">
+
+                    <span class="pin">📍</span>
+
+                    <input
+                        type="text"
+                        placeholder="Enter your delivery location"
+                    >
+
+                    <span class="chevron">⌄</span>
+
+                </label>
+
+            </div>
+
+            <label class="search-field search-input">
+
+                <input
+                    id="search"
+                    type="search"
+                    placeholder="Search for restaurant, item or more"
+                >
+
+                <span class="magnify">⌕</span>
+
+            </label>
+
+        </div>
+
+    </div>
+
+    <!-- THREE SERVICE CARDS -->
+    <div class="cards">
+
+        <!-- FOOD DELIVERY -->
+        <article class="service-card">
+
+            <h2>FOOD DELIVERY</h2>
+
+            <p class="subtitle">
+                FROM RESTAURANTS
+            </p>
+
+            <span class="discount">
+                UPTO 60% OFF
+            </span>
+
+            <span class="arrow">→</span>
+
+            <img
+                class="card-image"
+                src="ec86a309-9b06-48e2-9adc-35753f06bc0a_Food3BU (1).png"style="width: 205px; height: 500px; object-fit: contain; object-position: right bottom;"
+                alt="Food Delivery"
+            >
+
+        </article>
+
+        <!-- INSTAMART -->
+        <article class="service-card">
+
+            <h2>INSTAMART</h2>
+
+            <p class="subtitle">
+                INSTANT GROCERY
+            </p>
+
+            <span class="discount">
+                UPTO 60% OFF
+            </span>
+
+            <span class="arrow">→</span>
+
+            <img
+                class="card-image grocery"
+                src="b5c57bbf-df54-4dad-95d1-62e3a7a8424d_IM3BU (1).png"
+                alt="Instamart"
+            >
+
+        </article>
+
+        <!-- DINEOUT -->
+        <article class="service-card">
+
+            <h2>DINEOUT</h2>
+
+            <p class="subtitle">
+                EAT OUT &amp; SAVE MORE
+            </p>
+
+            <span class="discount">
+                UPTO 50% OFF
+            </span>
+
+            <span class="arrow">→</span>
+
+            <img
+                class="card-image dine"
+                src="b6d9b7ab-91c7-4f72-9bf2-fcd4ceec3537_DO3BU (1).png"
+                alt="Dineout"
+            >
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- JAVASCRIPT -->
+<script>
+
+const search = document.getElementById("search");
+
+search.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter" && this.value.trim()) {
+
+        alert("Searching for: " + this.value.trim());
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
